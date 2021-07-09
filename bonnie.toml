@@ -1,0 +1,35 @@
+version="0.3.0"
+
+[scripts]
+## Builds everything
+build.cmd = "cargo build"
+## Builds the frontend
+build.subcommands.frontend = [
+	"cd frontend",
+	"cargo build"
+]
+## Builds the backend
+build.subcommands.backend = [
+	"cd backend",
+	"cargo build"
+]
+## Runs the frontend, watching for changes
+run.subcommands.frontend = "cargo watch -x \"run --bin frontend-bin\""
+## Runs the backend, watching for changes
+run.subcommands.backend = "cargo watch -x \"run --bin backend-bin\""
+## Tests everything
+test.cmd = "cargo watch -x \"test\""
+## Tests the frontend, watching for changes
+test.subcommands.frontend = [
+	"cd frontend",
+	"cargo watch -x \"test\""
+]
+## Tests the backend, watching for changes
+test.subcommands.backend = [
+	"cd backend",
+	"cargo watch -x \"test\""
+]
+## Checks everything for tests, formatting, etc.
+check = "cargo check && cargo fmt -- --check && cargo clippy && cargo test" # This will be run on CI as well
+## Releases a new version to GitHub
+release = "standard-version --sign --commit-all && git push --follow-tags origin main"

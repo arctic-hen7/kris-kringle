@@ -1,0 +1,20 @@
+# We only need one frontend package because we don't use subscriptions (Diana would otherwise need two)
+
+[package]
+name = "kringle-app-frontend"
+version = "0.1.0"
+edition = "2018"
+default-run = "frontend-bin"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diana = "0.2.3"
+
+[[bin]]
+name = "frontend-bin"
+path = "src/bin/frontend.rs"
+
+[lib]
+name = "frontend"
+path = "src/lib.rs"

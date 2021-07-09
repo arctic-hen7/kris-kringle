@@ -1,0 +1,20 @@
+# We only need one backend package because we don't use subscriptions (Diana would otherwise need two)
+
+[package]
+name = "kringle-app-backend"
+version = "0.1.0"
+edition = "2018"
+default-run = "backend-bin"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diana = "0.2.3"
+
+[[bin]]
+name = "backend-bin"
+path = "src/bin/backend.rs"
+
+[lib]
+name = "backend"
+path = "src/lib.rs"
