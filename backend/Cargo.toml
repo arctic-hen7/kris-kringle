@@ -10,6 +10,10 @@ default-run = "backend-bin"
 
 [dependencies]
 diana = "0.2.3"
+diana-actix-web = "0.2.3"
+async-graphql = "2.8.2"
+actix-web = "3.3.2"
+dotenv = "0.15.0"
 
 [[bin]]
 name = "backend-bin"

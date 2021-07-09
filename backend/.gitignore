@@ -1,0 +1,3 @@
+# Secrets are stored in here
+# You can initialize your own by running `bonnie setup`
+.env.local

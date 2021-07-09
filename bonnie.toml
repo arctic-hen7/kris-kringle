@@ -1,6 +1,13 @@
 version="0.3.0"
 
 [scripts]
+## Generates a JWT secret and writes it to `.env.local`
+setup.subcommands.jwt-secret.generic = "echo \"JWT_SECRET=$(openssl rand -base64 256 | tr -d '\n' )\" > backend/.env.local"
+setup.subcommands.jwt-secret.targets.windows = "echo \"This command is only supported on Unix.\""
+setup.order = """
+jwt-secret {}
+"""
+
 ## Builds everything
 build.cmd = "cargo build"
 ## Builds the frontend
