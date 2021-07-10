@@ -1,4 +1,4 @@
-version="0.3.0"
+version="0.3.1"
 
 [scripts]
 ## Generates a JWT secret and writes it to `.env.local`
@@ -21,7 +21,10 @@ build.subcommands.backend = [
 	"cargo build"
 ]
 ## Runs the frontend, watching for changes (uses Trunk)
-run.subcommands.frontend = "cd frontend && trunk serve"
+run.subcommands.frontend = [
+    "cd frontend",
+    "trunk serve"
+]
 ## Runs the backend, watching for changes
 run.subcommands.backend = "cargo watch -x \"run --bin backend-bin\""
 ## Tests everything
